@@ -21,7 +21,7 @@ class TranslationRuleServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            dirname(__DIR__) . '/resource/translation_rules.php' => base_path('resources/lang/translation_rules.php'),
+            dirname(__DIR__) . '/resources/translation_rules.php' => base_path('resources/lang/translation_rules.php'),
         ]);
     }
 
