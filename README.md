@@ -40,7 +40,7 @@ And example of message in file `resource/lang/ru/app.php`:
     'apple' => '{0}яблоко|{1}яблока|{2}яблок'
 ```
 
-Sow
+So
 
 ```php
 echo 5 . ' ' . trans_rule('app.apple', 5) // will produce 5 яблок
