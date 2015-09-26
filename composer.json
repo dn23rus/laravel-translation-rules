@@ -1,5 +1,5 @@
 {
-    "name": "dmbur/laravel-translate-rule",
+    "name": "dn23rus/laravel-translation-rules",
     "authors": [
         {
             "name": "Dmitry Buryak",
@@ -7,7 +7,7 @@
         }
     ],
     "require": {
-        "laravel/framework": "5.1.*"
+        "laravel/framework": "5.*"
     },
     "autoload": {
         "psr-4": {
