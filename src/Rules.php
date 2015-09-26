@@ -4,6 +4,8 @@ namespace Dmbur\TranslationRule;
 
 class Rules
 {
+    protected $rules;
+
     /**
      * @param $locale
      *
@@ -11,20 +13,22 @@ class Rules
      */
     public function get($locale)
     {
-        $rules = $this->rules();
-        return isset($rules[$locale]) ? $rules[$locale] : null;
+        $this->load();
+        return isset($this->rules[$locale]) ? $this->rules[$locale] : null;
     }
 
     /**
-     * @return array|callable[]
+     * @return void
      */
-    protected function rules()
+    protected function load()
     {
-        return [
-            'ru' => function ($n) {
-                return ($n % 10 == 1 && $n % 100 != 11) ? 0 :
-                    ($n % 10 >= 2 && $n % 10 <= 4 && ($n % 100 < 10 || $n % 100 >= 20) ? 1 : 2);
+        if (is_null($this->rules)) {
+            $file = base_path('resources/lang/translation_rules.php');
+            if (is_readable($file)) {
+                $this->rules = include $file;
+            } else {
+                $this->rules = [];
             }
-        ];
+        }
     }
 }
